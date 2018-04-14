@@ -1,6 +1,7 @@
 import React from 'react';
-import Document, { Head, Main, NextScript } from 'next/document';
 import JssProvider from 'react-jss/lib/JssProvider';
+import Document, { Head, Main, NextScript } from 'next/document';
+
 import getContext from '../lib/context';
 
 class MyDocument extends Document {
@@ -13,9 +14,22 @@ class MyDocument extends Document {
           <meta name="google" content="notranslate" />
           <meta name="theme-color" content="#1976D2" />
 
-          <link rel="shortcut icon" href="https://storage.googleapis.com/builderbook/favicon32.png" />
-          <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400:latin" />
-          <link rel="stylesheet" href="https://storage.googleapis.com/builderbook/nprogress.min.css" />
+          <link
+            rel="shortcut icon"
+            href="https://storage.googleapis.com/builderbook/favicon32.png"
+          />
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Muli:300,400:latin"
+          />
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          />
+          <link
+            rel="stylesheet"
+            href="https://storage.googleapis.com/builderbook/nprogress.min.css"
+          />
           <link rel="stylesheet" href="https://storage.googleapis.com/builderbook/vs.min.css" />
 
           <style>
@@ -45,8 +59,6 @@ class MyDocument extends Document {
               }
               code {
                 font-size: 14px;
-                background: #FFF;
-                padding: 3px 5px;
               }
             `}
           </style>
@@ -71,7 +83,6 @@ class MyDocument extends Document {
 
 MyDocument.getInitialProps = ({ renderPage }) => {
   const pageContext = getContext();
-
   const page = renderPage(Component => props => (
     <JssProvider
       registry={pageContext.sheetsRegistry}

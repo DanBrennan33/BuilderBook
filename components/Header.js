@@ -4,10 +4,18 @@ import Toolbar from 'material-ui/Toolbar';
 import Grid from 'material-ui/Grid';
 import Hidden from 'material-ui/Hidden';
 import Avatar from 'material-ui/Avatar';
+import Router from 'next/router';
+import NProgress from 'nprogress';
 
 import { styleToolbar } from './SharedStyles';
 
 import MenuDropDown from './MenuDropDown';
+
+Router.onRouterChangeStart = () => {
+  NProgress.start();
+};
+Router.onRouteChangeComplete = () => NProgress.done();
+Router.onRouteChangeError = () => NProgress.done();
 
 const optionsMenu = [
   {
@@ -37,7 +45,7 @@ function Header({ user }) {
             ) : (
               <Link prefetch href="/">
                 <Avatar
-                  src="https://storage.googleapis.com/builderbook/logo.svg"
+                  src="../static/images/mandala.jpg"
                   alt="Builder Book logo"
                   style={{ margin: '0px auto 0px 20px' }}
                 />
