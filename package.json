@@ -5,15 +5,20 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon server/app.js --watch server --exec babel-node",
-    "lint": "eslint components pages lib server"
+    "lint": "eslint components pages lib server",
+    "test": "jest --coverage",
+    "jest": { "coverageDirectory": "./.coverage" }
   },
   "dependencies": {
+    "aws-sdk": "^2.182.0",
     "babel-cli": "^6.26.0",
     "connect-mongo": "^2.0.1",
     "dotenv": "^4.0.0",
+    "email-addresses": "^3.0.1",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
     "googleapis": "^24.0.0",
+    "handlebars": "^4.0.11",
     "lodash": "^4.17.4",
     "mongoose": "^5.0.0-rc0",
     "material-ui": "1.0.0-beta.38",
@@ -24,7 +29,8 @@
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-jss": "^8.2.1"
+    "react-jss": "^8.2.1",
+    "winston": "^3.0.0-rc1"
   },
   "repository": {
     "type": "git",
@@ -44,6 +50,7 @@
     "eslint-plugin-import": "^2.10.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
+    "jest": "^22.4.3",
     "nodemon": "^1.17.2"
   }
 }

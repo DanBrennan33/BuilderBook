@@ -6,6 +6,8 @@ import mongoose from 'mongoose';
 
 import auth from './google';
 
+import logger from './logs';
+
 require('dotenv').config();
 
 const dev = process.env.NODE_ENV !== 'production';
@@ -19,11 +21,9 @@ const ROOT_URL = process.env.ROOT_URL || `http://localhost:${port}`;
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
-// Nextjs's server prepared
 app.prepare().then(() => {
   const server = express();
 
-  // confuring MongoDB session store
   const MongoStore = mongoSessionStore(session);
   const sess = {
     name: 'builderbook.sid',
@@ -49,6 +49,6 @@ app.prepare().then(() => {
   // starting express server
   server.listen(port, (err) => {
     if (err) throw err;
-    console.log(`> Ready on ${ROOT_URL}`); // eslint-disable-line no-console
+    logger.info(`> Ready on ${ROOT_URL}`);
   });
 });
