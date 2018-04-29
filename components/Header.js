@@ -1,17 +1,17 @@
 import PropTypes from 'prop-types';
 import Link from 'next/link';
+import Router from 'next/router';
+import NProgress from 'nprogress';
 import Toolbar from 'material-ui/Toolbar';
 import Grid from 'material-ui/Grid';
 import Hidden from 'material-ui/Hidden';
 import Avatar from 'material-ui/Avatar';
-import Router from 'next/router';
-import NProgress from 'nprogress';
-
-import { styleToolbar } from './SharedStyles';
 
 import MenuDropDown from './MenuDropDown';
 
-Router.onRouterChangeStart = () => {
+import { styleToolbar } from './SharedStyles';
+
+Router.onRouteChangeStart = () => {
   NProgress.start();
 };
 Router.onRouteChangeComplete = () => NProgress.done();
@@ -45,9 +45,9 @@ function Header({ user }) {
             ) : (
               <Link prefetch href="/">
                 <Avatar
-                  src="../static/images/mandala.jpg"
+                  src="/../static/images/mandala.jpg"
                   alt="Builder Book logo"
-                  style={{ margin: '0px auto 0px 20px' }}
+                  style={{ margin: '0px auto 0px 20px', cursor: 'pointer' }}
                 />
               </Link>
             )}
@@ -60,7 +60,7 @@ function Header({ user }) {
                 ) : null}
               </div>
             ) : (
-              <Link prefetch href="/login">
+              <Link prefetch href="/public/login" as="/login">
                 <a style={{ margin: '0px 20px 0px auto' }}>Log in</a>
               </Link>
             )}
@@ -73,8 +73,8 @@ function Header({ user }) {
 
 Header.propTypes = {
   user: PropTypes.shape({
-    avatarUrl: PropTypes.string,
     displayName: PropTypes.string,
+    email: PropTypes.string.isRequired,
   }),
 };
 

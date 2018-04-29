@@ -25,16 +25,17 @@ function insertTemplates() {
   const templates = [
     {
       name: 'welcome',
-      subject: 'Welcome to builderbook.org',
+      subject: 'Welcome to Web App',
       message: `{{userName}},
         <p>
-          Thanks for signing up for Builder Book!
+          At Web App, we are excited to help you build useful, production-ready web apps from scratch.
         </p>
         <p>
-          In our books, we teach you how to build complete, production-ready web apps from scratch.
+          See list of available books here.
         </p>
 
-        Kelly & Timur, Team Builder Book
+        Daniel,
+        Team Web App
       `,
     },
   ];
